@@ -420,7 +420,7 @@ theme = "FixIt"
     twemoji = true
     # whether to enable lightgallery
     # FixIt 0.2.18 | CHANGED if set to "force", images in the content will be forced to shown as the gallery.
-    lightgallery = true
+    lightgallery = "force"
     # FixIt 0.2.0 | NEW whether to enable the ruby extended syntax
     ruby = true
     # FixIt 0.2.0 | NEW whether to enable the fraction extended syntax
