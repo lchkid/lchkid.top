@@ -64,7 +64,7 @@ $ docker run -it -v $PWD/asf:/app/config --name=asf justarchi/archisteamfarm
 
 此时如果返回下图所示的提示，说明ASF容器已经创建成功，直接`CTRL+D`退出即可：
 
-![](/images/2020/0306/Docker%E9%85%8D%E7%BD%AEASF%E6%8F%90%E7%A4%BA.png)
+![ASF容器](/images/2020/0306/Docker%E9%85%8D%E7%BD%AEASF%E6%8F%90%E7%A4%BA.png 'ASF容器')
 
 
 ### 配置`config`文件

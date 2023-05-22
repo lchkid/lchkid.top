@@ -25,7 +25,7 @@ tags:
 $ rpm -qa|grep mariadb
 ```
 
-![](/images/2020/0314/mariadb.png)
+![旧版本](/images/2020/0314/mariadb.png 'mariadb')
 
 我的centos版本没装，如果有的话用以下命令卸载
 
@@ -40,7 +40,7 @@ $ rpm -e --nodeps mariadb
 $ rpm -qa | grep libaio
 ```
 
-![](/images/2020/0314/deps.png)
+![依赖](/images/2020/0314/deps.png 'deps')
 
 
 #### 下载rpm包
@@ -74,7 +74,7 @@ $ rpm -ivh mysql-community-client-5.7.28-1.el7.x86_64.rpm
 $ rpm -ivh mysql-community-server-5.7.28-1.el7.x86_64.rpm
 ```
 
-![](/images/2020/0314/install.png)
+![安装](/images/2020/0314/install.png 'install')
 
 装完检查一下安装是否成功：
 
@@ -82,7 +82,7 @@ $ rpm -ivh mysql-community-server-5.7.28-1.el7.x86_64.rpm
 $ mysqladmin --version
 ```
 
-![](/images/2020/0314/version.png)
+![检查版本](/images/2020/0314/version.png 'version')
 
 
 #### 初始化MySQL
@@ -99,7 +99,7 @@ $ mysqld --initialize --user=mysql
 $ cat /var/log/mysqld.log
 ```
 
-![](/images/2020/0314/initialize.png)
+![初始化密码](/images/2020/0314/initialize.png 'initialize')
 
 此时我们可以看一下配置文件：
 
@@ -107,7 +107,7 @@ $ cat /var/log/mysqld.log
 $ cat /etc/my.cnf
 ```
 
-![](/images/2020/0314/conf.png)
+![配置文件](/images/2020/0314/conf.png 'conf')
 
 可以看到数据库目录在/var/lib/mysql，列一下主要的目录地址：
 
@@ -132,7 +132,7 @@ $ systemctl start mysqld
 $ systemctl status mysqld
 ```
 
-![](/images/2020/0314/start.png)
+![mysql状态](/images/2020/0314/start.png 'start')
 
 OK没问题，通过root和初始密码连接：
 
@@ -140,7 +140,7 @@ OK没问题，通过root和初始密码连接：
 $ mysql -uroot -p
 ```
 
-![](/images/2020/0314/link.png)
+![登录数据库](/images/2020/0314/link.png 'login')
 
 熟悉的界面是吧，别急，还得改一下初始密码：
 
@@ -150,7 +150,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '新的密码';
 
 注意默认配置下密码不能过于简单否则会报错，重新登录一下，搞定！
 
-![](/images/2020/0314/over.png)
+![密码修改完成](/images/2020/0314/over.png 'over')
 
 
 #### 远程连接MySQL
@@ -162,7 +162,7 @@ use mysql;
 SELECT host,user FROM user;
 ```
 
-![](/images/2020/0314/user.png)
+![查看用户](/images/2020/0314/user.png 'user')
 
 显然现在只允许root通过本地连接，给它改成允许所有连接：
 
@@ -170,7 +170,7 @@ SELECT host,user FROM user;
 UPDATE user SET host='%' WHERE user='root';
 ```
 
-![](/images/2020/0314/update.png)
+![修改用户权限](/images/2020/0314/update.png 'update')
 
 > 这里也可以用另一种方式：
 
@@ -186,7 +186,7 @@ flush privileges;
 
 用SQLyog连接一下试试：
 
-![](/images/2020/0314/sqlyoglink.png)
+![连接数据库](/images/2020/0314/sqlyoglink.png 'sqlyoglink')
 
 这样MySQL5.7.28就部署成功了。
 顺便附上一份之前写的的二进制包安装及配置简单教程。

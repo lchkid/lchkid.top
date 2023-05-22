@@ -29,7 +29,7 @@ tags:
 
 `CentOS 7.9`自带的是`Python 2.7.5`，所以我们还需要自行下载安装`Python 3`，由于是`Minimal Install`的新系统，需要提前安装一下`gcc`等依赖环境。
 
-![](/images/2021/0709/env1.png)
+![env](/images/2021/0709/env1.png 'env')
 
 
 ##### 安装依赖
@@ -64,7 +64,7 @@ $ make && make install
 $ /usr/local/python3.9/bin/python3.9
 ```
 
-![](/images/2021/0709/python1.png)
+![python3](/images/2021/0709/python1.png 'python3')
 
 
 ##### 配置环境变量
@@ -75,7 +75,7 @@ $ vim ~/.bash_profile
 $ source ~/.bash_profile
 ```
 
-![](/images/2021/0709/python2.png)
+![profile](/images/2021/0709/python2.png 'profile')
 
 ```shell
 # 测试python3和pip3
@@ -83,7 +83,7 @@ $ python3 -V
 $ pip3 -V
 ```
 
-![](/images/2021/0709/python3.png)
+![pip3](/images/2021/0709/python3.png 'pip3')
 
 
 ##### 安装Selenium和Requests
@@ -103,7 +103,7 @@ $ wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rp
 $ rpm rpm -ivh google-chrome-stable_current_x86_64.rpm
 ```
 
-![](/images/2021/0709/chrome1.png)
+![rpm](/images/2021/0709/chrome1.png 'rpm')
 
 毫无意外报错了，可以看到缺少了很多依赖包，可以一个个安装后再继续安装，也可以尝试另一种方法。
 
@@ -131,7 +131,7 @@ $ yum -y install google-chrome-stable --nogpgcheck
 $ google-chrome --version
 ```
 
-![](/images/2021/0709/chrome2.png)
+![chrome](/images/2021/0709/chrome2.png 'chrome')
 
 
 #### 安装ChromeDriver
@@ -156,7 +156,7 @@ $ mv chromedriver /usr/bin
 $ chromedriver -v
 ```
 
-![](/images/2021/0709/chromedriver.png)
+![chromedriver](/images/2021/0709/chromedriver.png 'chromedriver')
 
 
 #### 安装Snmpwalk
@@ -191,7 +191,7 @@ $ snmpwalk -v 2c -c monitor 127.0.0.1 sysDescr
 
 能获取到设备系统信息即表明SNMP协议配置成功。
 
-![](/images/2021/0709/snmp1.png)
+![snmp](/images/2021/0709/snmp1.png 'snmp')
 
 
 ### 监控脚本

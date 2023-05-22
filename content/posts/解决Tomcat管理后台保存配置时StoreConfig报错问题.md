@@ -18,7 +18,7 @@ tags:
 
 首先设置好Name和App base后点击Add添加VH：
 
-![](/images/2020/0310/tomcat-host-manager-add.png)
+![add](/images/2020/0310/tomcat-host-manager-add.png 'add')
 
 看到提示信息：
 
@@ -26,11 +26,11 @@ tags:
 OK - Host [test.tomcat.org] added
 ```
 
-![](/images/2020/0310/tomcat-host-manager-added.png)
+![added](/images/2020/0310/tomcat-host-manager-added.png 'added')
 
 测试一下是否成功，由于提前修改了`/webapps2/ROOT/index.jsp`（Home-Test），所以可以明显看到访问该Host跳转到了`webapps2`目录下：
 
-![](/images/2020/0310/tomcat-host-manager-started.png)
+![started](/images/2020/0310/tomcat-host-manager-started.png 'started')
 
 然后点击Persist configuration下的All，想将当前VH配置保存到`/conf/server.xml`中
 

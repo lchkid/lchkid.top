@@ -47,13 +47,13 @@ tags:
 3. 新建一个`DWORD`值，名称为`ProhibitIpSec`，数值为`1`
    > 此键值为无需密钥`L2TP`连接
 
-   ![](/images/2020/1202/ProhibitIpSec.png)
+   ![ProhibitIpSec](/images/2020/1202/ProhibitIpSec.png 'ProhibitIpSec')
 
 4. 找到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent`
 
 5. 新建一个`DWORD`值，名称为`AssumeUDPEncapsulationContextOnSendRule`，数值为`2`
 
-   ![](/images/2020/1202/AssumeUDPEncapsulationContextOnSendRule.png)
+   ![AssumeUDPEncapsulationContextOnSendRule](/images/2020/1202/AssumeUDPEncapsulationContextOnSendRule.png 'AssumeUDPEncapsulationContextOnSendRule')
 
    > 或者新建一个`.reg`注册表文件，输入以下内容保存双击运行即可：
    > ```
@@ -81,7 +81,7 @@ tags:
 
 1. 右键属性-详细信息-驱动程序关键字，记住这个值
 
-   ![](/images/2020/1202/WANMiniport.png)
+   ![WANMiniport](/images/2020/1202/WANMiniport.png 'WANMiniport')
 
 2. 打开注册表
 
@@ -91,23 +91,23 @@ tags:
 
 4. 删除如下图所示的`DriverDesc`键值
 
-   ![](/images/2020/1202/DriverDesc.png)
+   ![DriverDesc](/images/2020/1202/DriverDesc.png 'DriverDesc')
 
 5. 开始重新安装`WAN Miniport(IP)`的驱动，首先更新成错误的驱动，右键更新驱动程序，并按下方图示顺序操作
 
-   ![](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F1.png)
+   ![重装驱动1](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F1.png '重装驱动1')
 
-   ![](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F2.png)
+   ![重装驱动2](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F2.png '重装驱动2')
 
-   ![](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F3.png)
+   ![重装驱动3](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F3.png '重装驱动3')
 
-   ![](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F4.png)
+   ![重装驱动4](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F4.png '重装驱动4')
 
 6. 此时，原先的`WAN Miniport(IP)`将会显示为**蓝牙设备**
 
 7. 选中该蓝牙设备，右键更新驱动程序，重装为正确的`WAN 微型端口(IP)`驱动即可。
 
-   ![](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F5.png)
+   ![重装驱动5](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F5.png '重装驱动5')
 
 #### 错误
 

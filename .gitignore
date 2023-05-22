@@ -5,3 +5,4 @@ resources/
 .hugo_build.lock
 jsconfig.json
 *.bak
+.DS_Store

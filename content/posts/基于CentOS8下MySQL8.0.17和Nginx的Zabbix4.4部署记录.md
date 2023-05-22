@@ -48,7 +48,7 @@ $ mysql --version
 
 当前MySQL版本是`8.0.17`
 
-![](/images/2020/0320/mysql1.png)
+![mysql版本](/images/2020/0320/mysql1.png 'mysql版本')
 
 
 ###### 启动MySQL
@@ -60,7 +60,7 @@ $ systemctl enable mysqld
 $ systemctl status mysqld
 ```
 
-![](/images/2020/0320/mysql2.png)
+![mysql状态](/images/2020/0320/mysql2.png 'mysql状态')
 
 
 ###### 配置MySQL
@@ -84,7 +84,7 @@ Reload privilege tables now? Y
 $ mysql -uroot -p
 ```
 
-![](/images/2020/0320/mysql3.png)
+![登录mysql](/images/2020/0320/mysql3.png '登录mysql')
 
 
 ```mysql
@@ -132,7 +132,7 @@ $ nginx -v
 
 当前Nginx stable版本是`1.16.1`
 
-![](/images/2020/0320/nginx1.png)
+![nginx版本](/images/2020/0320/nginx1.png 'nginx版本')
 
 
 ##### 通过二进制包安装
@@ -237,7 +237,7 @@ $ zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -uzabbix -p zabb
 
 这就是导入后的zabbix库
 
-![](/images/2020/0320/zabbix1.png)
+![zabbix数据库](/images/2020/0320/zabbix1.png 'zabbix数据库')
 
 
 ##### 连接Zabbix server与MySQL
@@ -298,11 +298,11 @@ $ systemctl enable --now zabbix-server zabbix-agent
 
 这里可能会遇到启动失败的问题
 
-![](/images/2020/0320/zabbix2.png)
+![zabbix启动失败](/images/2020/0320/zabbix2.png 'zabbix启动失败')
 
 按提示查看失败原因，可以看到是SELinux的锅
 
-![](/images/2020/0320/zabbix3.png)
+![报错](/images/2020/0320/zabbix3.png 'zabbix启动失败报错')
 
 直接关掉再启动zabbix-server
 
@@ -312,7 +312,7 @@ $ systemctl start zabbix-server
 $ systemctl status zabbix-server
 ```
 
-![](/images/2020/0320/zabbix4.png)
+![启动](/images/2020/0320/zabbix4.png 'zabbix启动')
 
 配置一下SELinux
 
@@ -327,11 +327,11 @@ SELINUX=disable
 $ netstat -tnlp
 ```
 
-![](/images/2020/0320/zabbix5.png)
+![端口](/images/2020/0320/zabbix5.png 'zabbix端口')
 
 全部启动完毕后就可以在浏览器打开 http://localhost:9000/ 浏览Zabbix安装页面了
 
-![](/images/2020/0320/zabbix6.png)
+![启动页](/images/2020/0320/zabbix6.png 'zabbix启动页')
 
 
 ### 配置Zabbix
@@ -346,7 +346,7 @@ $ netstat -tnlp
 这里是配置前端和数据库连接的账户信息，填入之前配置好的MySQL库、用户和密码
 如果你的数据库不是在本机，记得填入数据库所在的IP地址
 
-![](/images/2020/0320/zabbix7.png)
+![数据库连接](/images/2020/0320/zabbix7.png '数据库连接')
 
 
 #### 配置服务端信息
@@ -354,7 +354,7 @@ $ netstat -tnlp
 填入自定义host和name，端口如果没有修改过`/etc/zabbix/zabbix_server.conf`就是默认的`10051`
 最后会在`/etc/zabbix/web/`下生成一个`zabbix.conf.php`文件来保存刚刚配置好的所有信息
 
-![](/images/2020/0320/zabbix8.png)
+![配置完成](/images/2020/0320/zabbix8.png '配置完成')
 
 这样基于MySQL和Nginx的Zabbix就部署完毕了，访问 http://localhost:9000/ 就可以用初始用户名密码登陆。
 
