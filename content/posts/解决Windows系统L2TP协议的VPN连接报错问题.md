@@ -58,7 +58,7 @@ tags:
    > 或者新建一个`.reg`注册表文件，输入以下内容保存双击运行即可：
    > ```
    > Windows Registry Editor Version 5.00 
-   > [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\RasMan\Parameters]
+   > [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\Parameters]
    > "ProhibitIpSec"=dword:00000001
    > [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent]
    > "AssumeUDPEncapsulationContextOnSendRule"=dword:00000002
@@ -74,6 +74,7 @@ tags:
 ##### 错误说明
 
 不能建立到远程计算机的连接。你可能需要更改此连接的网络设置。
+
 
 ##### 解决方法
 
@@ -109,7 +110,8 @@ tags:
 
    ![重装驱动5](/images/2020/1202/%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F5.png '重装驱动5')
 
-#### 错误
+
+#### 未知错误1
 
 ##### 错误说明
 
@@ -120,9 +122,49 @@ L2TP连接尝试失败，因为安全层在初始化与远程计算机的协商�
 
 1. 在运行中输入`services.msc`打开服务
 
-2. 找到`IPsec Policy Agent`、`Remote Access Connection Manager`和`Routing and Remote Access`
+2. 找到`IPsec Policy Agent`和`Routing and Remote Access`，右键属性设为自动
 
-3. 右键属性设为自动，重启电脑再次尝试连接
+3. 重启电脑再次尝试连接
+
+
+#### 未知错误2
+
+##### 错误说明
+
+L2TP连接尝试失败，因为安全层不能与远程计算机协商兼容的参数。
+
+
+##### 解决方法
+
+跟未知错误1有点类似，先确保服务没问题
+
+1. 在运行中输入`services.msc`打开服务
+
+2. 找到`IPsec Policy Agent`和`Routing and Remote Access`，右键属性设为自动
+
+3. 打开注册表
+
+4. 找到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\RasMan\Parameters`
+
+5. 新建一个`DWORD`值，名称为`ProhibitIpSec`，数值为`1`
+   > 此键值为无需密钥`L2TP`连接
+
+   ![ProhibitIpSec](/images/2020/1202/ProhibitIpSec.png 'ProhibitIpSec')
+
+6. 找到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent`
+
+7. 找到一个名称为`AllowL2TPWeakCrypto``DWORD`值，数值修改为`1`
+
+   > 或者新建一个`.reg`注册表文件，输入以下内容保存双击运行即可：
+   > ```
+   > Windows Registry Editor Version 5.00 
+   > [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\Parameters]
+   > "ProhibitIpSec"=dword:00000001
+   > [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\Parameters]
+   > "AllowL2TPWeakCrypto"=dword:00000001
+   > ```
+
+8. 重启电脑再次尝试连接
 
 
 ### 参考文档
